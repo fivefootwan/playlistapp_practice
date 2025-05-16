@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import SearchBar from './components/SearchBar.js';
 import SearchResult from './components/SearchResult.js'
+import SpotifyLogin from './components/SpotifyLogin';
+
 
 function App() {
 
@@ -13,12 +15,13 @@ function App() {
 
   return (
     <div className="App">
+      <div><SpotifyLogin /></div>
       <header>
         <SearchBar onSearch={handleSearch} />
       </header>
       <div className="App-Body">
       <SearchResult />
-        
+      
 
       </div>
     </div>
