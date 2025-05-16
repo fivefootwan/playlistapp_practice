@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import SearchBar from './components/SearchBar.js';
+import SearchResult from './components/SearchResult.js'
 
 function App() {
 
@@ -14,8 +15,12 @@ function App() {
     <div className="App">
       <header>
         <SearchBar onSearch={handleSearch} />
-        
       </header>
+      <div className="App-Body">
+      <SearchResult />
+        
+
+      </div>
     </div>
   );
 }

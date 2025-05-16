@@ -22,13 +22,13 @@ function SearchBar({onSearch}) {
             onSubmit={handleSearchInput}
             className={styles.form}>
                 <input 
-                placeholder='Search Bar' 
+                placeholder='Enter song name or artist' 
                 // dont do this -> style={{ width:'350px' }} <- it will override .css
                 onChange={logInput} //1. onChange triggers logInput every time the user types, which updates the userInput state.
                 value={userInput}
                 className={styles.input}
                 ></input> 
-                <button type='submit' className={styles.button} >Submit</button>
+                <button type='submit' className={styles.button} >Search</button>
             </form>
             
         </div>);

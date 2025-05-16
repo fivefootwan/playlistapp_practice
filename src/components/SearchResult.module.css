@@ -1,0 +1,27 @@
+.Result {
+    margin-top: 5vh;
+    background-color: brown;
+    width: 65vw;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+.Tracklist{
+    background-color: green;
+}
+
+.ResultTitle {
+  font-size: 40px;  
+  color: white;
+}
+
+.SongTitle, .ArtistName{
+    color: white;
+}
+
+.Line {
+border: none;
+height: 0.5px;
+background-color: #ccc; /* light grey line */
+margin: 10px 0;
+}
