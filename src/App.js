@@ -2,7 +2,7 @@ import './App.css';
 import SearchBar from './components/SearchBar';
 import SearchResult from './components/SearchResult';
 import SpotifyLogin from './components/SpotifyLogin';
-import Callback from './components/Callback';
+import Callback from './Callback';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
