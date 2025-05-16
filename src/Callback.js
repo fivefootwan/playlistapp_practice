@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-const clientId = 'YOUR_SPOTIFY_CLIENT_ID';
+const clientId = 'f00ce91fd41a4e41940a68a04e277a19';
 const redirectUri = 'https://playlistapp-practice.vercel.app/callback';
 
 function Callback() {
