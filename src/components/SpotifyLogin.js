@@ -1,7 +1,7 @@
 import React from 'react';
 import { generateCodeChallenge, generateRandomString } from '../spotifyAuth';
 
-const clientId = "f00ce91fd41a4e41940a68a04e277a19";
+const clientId = "f00ce91fd41a4e41940a68a04e277a19"; //this is gen from having a dev acc on spotify
 const redirectUri = "https://playlistapp-practice.vercel.app/callback";
 const scope = "playlist-modify-public playlist-modify-private";
 
