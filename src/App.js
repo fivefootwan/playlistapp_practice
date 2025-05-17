@@ -3,6 +3,7 @@ import SearchBar from './components/SearchBar';
 import SearchResult from './components/SearchResult';
 import Playlist from "./components/PlaylistManager";
 import SpotifyLogin from './components/SpotifyLogin';
+import AddToPlaylist from "./components/ModalAddToPlaylist";
 import Callback from './Callback';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react'; // ✅ add this
@@ -47,6 +48,9 @@ function App() {
               <div className="App-Body">
                 <SearchResult tracks={searchResults} /> {/* ✅ step 3 */}
                 <Playlist/>
+              </div>
+              <div>
+                <AddToPlaylist/>
               </div>
             </div>
           }
