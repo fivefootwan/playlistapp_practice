@@ -13,7 +13,7 @@ export function PlusIcon({ onClick }) {
       >
         <path
           d="M12 5v14M5 12h14"
-          stroke="white"
+          stroke="black"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -22,7 +22,7 @@ export function PlusIcon({ onClick }) {
     );
   }
 
-export function OpenIcon({ size = 24, color = "white", onClick }) {
+export function OpenIcon({ size = 24, color = "black", onClick }) {
     return (
       <svg 
         onClick={onClick}
@@ -37,7 +37,7 @@ export function OpenIcon({ size = 24, color = "white", onClick }) {
         <path 
           strokeLinecap="round" 
           strokeLinejoin="round" 
-          strokeWidth={1} 
+          strokeWidth={1.5} 
           d="M3 7a2 2 0 012-2h5l2 2h7a2 2 0 012 2v1M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9H5a2 2 0 00-2 2z" 
         />
       </svg>

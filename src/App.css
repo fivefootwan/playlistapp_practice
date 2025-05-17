@@ -27,7 +27,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 150px; /* space between columns */
+  gap: 2%; /* space between columns */
 } 
 .App-link {
   color: #61dafb;

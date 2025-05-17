@@ -1,4 +1,5 @@
 .PlaylistsContainer {
+    margin-top: 5vh;
     color:grey;
     text-align: left;
     background-color: aqua;
@@ -9,7 +10,8 @@
 }
 .PlaylistHeader {
     display: flex;
-    gap: 5px;
+    align-items: center;
+    gap: 2%;
 }
 
 .Playlists {
@@ -20,4 +22,6 @@
     display: flex;
     margin: 20px 0;
     background-color: blueviolet;
+    align-items: center;
+    gap: 2%;
 }

@@ -10,7 +10,7 @@ function Playlist() {
 
             <div className={styles.PlaylistHeader}>
                 <h2>Your Playlists</h2>
-                <button className={styles.CreatePlaylist} type="button">New Playlist</button>
+                {/* <button className={styles.CreatePlaylist} type="button">New Playlist</button> */}
                 <PlusIcon onClick={() => console.log("Plus clicked!")} />
             </div>
 
@@ -18,19 +18,19 @@ function Playlist() {
             <div className={styles.Playlists}>
                 <div className={styles.Playlist}>
                     <p>Song Title</p>
-                    <button className={styles.OpenPlaylist} type="button">Open Playlist</button>
+                    {/* <button className={styles.OpenPlaylist} type="button">Open Playlist</button> */}
                     <OpenIcon onClick={() => console.log("Plus clicked!")} />
                 </div>
 
                 <div className={styles.Playlist}>
                     <p>Song Title</p>
-                    <button className={styles.OpenPlaylist} type="button">Open Playlist</button>
+                    {/* <button className={styles.OpenPlaylist} type="button">Open Playlist</button> */}
                     <OpenIcon onClick={() => console.log("Plus clicked!")} />
                 </div>
 
                 <div className={styles.Playlist}>
-                    <p>Song Title</p>
-                    <button className={styles.OpenPlaylist} type="button">Open Playlist</button>
+                <p>Song Title</p>
+                    {/* <button className={styles.OpenPlaylist} type="button">Open Playlist</button> */}
                     <OpenIcon onClick={() => console.log("Plus clicked!")} />
                 </div>
 
