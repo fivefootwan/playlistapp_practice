@@ -40,19 +40,27 @@ function Playlist() {
                     <OpenIcon onClick={() => setModalShowModal(true)} />
                     {renamePlaylistModal && (
                     <RenamePlaylist onClose={() => setRenamePlaylistModal(false)} />
-                    )} {/* ???? */}
+                    )} 
                 </div>
 
                 <div className={styles.Playlist}>
                     <p>Playlist Title</p>
                     {/* <button className={styles.OpenPlaylist} type="button">Open Playlist</button> */}
+                    <EditIcon onClick={() => setRenamePlaylistModal(true)}/>
                     <OpenIcon onClick={() => setModalShowModal(true)} />
+                    {renamePlaylistModal && (
+                    <RenamePlaylist onClose={() => setRenamePlaylistModal(false)} />
+                    )}
                 </div>
 
                 <div className={styles.Playlist}>
                 <p>Playlist Title</p>
                     {/* <button className={styles.OpenPlaylist} type="button">Open Playlist</button> */}
+                    <EditIcon onClick={() => setRenamePlaylistModal(true)}/>
                     <OpenIcon onClick={() => setModalShowModal(true)} />
+                    {renamePlaylistModal && (
+                    <RenamePlaylist onClose={() => setRenamePlaylistModal(false)} />
+                    )}
                 </div>
 
             </div>
