@@ -1,27 +1,37 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom/client';
 import styles from './Playlist.module.css';
-
+import {PlusIcon, OpenIcon} from '../assets/Icons';
+  
 function Playlist() {
 
     return (
-        <div>
-            <h2>Your Playlists</h2>
-            <button className="CreatePlaylist" type="button">New Playlist</button>
-            <div className="Playlists">
-                <div className="Playlist">
+        <div className={styles.PlaylistsContainer}>
+
+            <div className={styles.PlaylistHeader}>
+                <h2>Your Playlists</h2>
+                <button className={styles.CreatePlaylist} type="button">New Playlist</button>
+                <PlusIcon onClick={() => console.log("Plus clicked!")} />
+            </div>
+
+
+            <div className={styles.Playlists}>
+                <div className={styles.Playlist}>
                     <p>Song Title</p>
-                    <button className="OpenPlaylist" type="button">Open Playlist</button>
+                    <button className={styles.OpenPlaylist} type="button">Open Playlist</button>
+                    <OpenIcon onClick={() => console.log("Plus clicked!")} />
                 </div>
 
-                <div className="Playlist">
+                <div className={styles.Playlist}>
                     <p>Song Title</p>
-                    <button className="OpenPlaylist" type="button">Open Playlist</button>
+                    <button className={styles.OpenPlaylist} type="button">Open Playlist</button>
+                    <OpenIcon onClick={() => console.log("Plus clicked!")} />
                 </div>
 
-                <div className="Playlist">
+                <div className={styles.Playlist}>
                     <p>Song Title</p>
-                    <button className="OpenPlaylist" type="button">Open Playlist</button>
+                    <button className={styles.OpenPlaylist} type="button">Open Playlist</button>
+                    <OpenIcon onClick={() => console.log("Plus clicked!")} />
                 </div>
 
             </div>

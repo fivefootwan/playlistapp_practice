@@ -1,7 +1,20 @@
+.PlaylistsContainer {
+    color:grey;
+    text-align: left;
+    background-color: aqua;
+
+}
+.PlaylistHeader {
+    display: flex;
+    gap: 5px;
+}
+
 .Playlists {
     background-color: salmon;
 }
 
 .Playlist {
+    display: flex;
+    margin: 20px 0;
     background-color: blueviolet;
 }
