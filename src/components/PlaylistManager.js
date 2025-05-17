@@ -6,8 +6,8 @@ import {PlusIcon, OpenIcon} from '../assets/Icons';
 import {ModalCreatePlaylist} from './ModalCreatePlaylist';
   
 function Playlist() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [showModal, setShowModal] = useState(false);
+    const [isModalCreateOpen, setIsModalCreateOpen] = useState(false);
+    const [showModal, setModalShowModal] = useState(false);
 
 
     return (
@@ -16,15 +16,15 @@ function Playlist() {
             <div className={styles.PlaylistHeader}>
                 <h2>Your Playlists</h2>
                 {/* <button className={styles.CreatePlaylist} type="button">New Playlist</button> */}
-                <PlusIcon onClick={() => setIsModalOpen(true)} />
+                <PlusIcon onClick={() => setIsModalCreateOpen(true)} />
             </div>
 
-            {isModalOpen && ( //if isModalOpen is true then render the component below
+            {isModalCreateOpen && ( //if isModalOpen is true then render the component below
             <ModalCreatePlaylist 
-                onClose={() => setIsModalOpen(false)}
+                onClose={() => setIsModalCreateOpen(false)}
                 onCreate={(playlistName) => {
                 console.log("Create playlist with name:", playlistName);
-                setIsModalOpen(false);
+                setIsModalCreateOpen(false);
                 }}
             />
             )}
@@ -34,24 +34,24 @@ function Playlist() {
                 <div className={styles.Playlist}>
                     <p>Playlist Title</p>
                     {/* <button className={styles.OpenPlaylist} type="button">Open Playlist</button> */}
-                    <OpenIcon onClick={() => setShowModal(true)} />
+                    <OpenIcon onClick={() => setModalShowModal(true)} />
                 </div>
 
                 <div className={styles.Playlist}>
                     <p>Playlist Title</p>
                     {/* <button className={styles.OpenPlaylist} type="button">Open Playlist</button> */}
-                    <OpenIcon onClick={() => console.log("Plus clicked!")} />
+                    <OpenIcon onClick={() => setModalShowModal(true)} />
                 </div>
 
                 <div className={styles.Playlist}>
                 <p>Playlist Title</p>
                     {/* <button className={styles.OpenPlaylist} type="button">Open Playlist</button> */}
-                    <OpenIcon onClick={() => console.log("Plus clicked!")} />
+                    <OpenIcon onClick={() => setModalShowModal(true)} />
                 </div>
 
             </div>
             {showModal && (
-            <ShowPlaylist onClose={() => setShowModal(false)} />
+            <ShowPlaylist onClose={() => setModalShowModal(false)} />
             )}
         </div>
     )
