@@ -29,7 +29,7 @@ export function OpenIcon({ size = 24, color = "black", onClick }) {
         xmlns="http://www.w3.org/2000/svg" 
         width={size} 
         height={size} 
-        fill="none" 
+        fill="black" 
         viewBox="0 0 24 24" 
         stroke={color}
         style={{ cursor: 'pointer' }}
@@ -73,7 +73,7 @@ export function CloseIcon ({ onClick}) {
     height="24px" 
     viewBox="0 -960 960 960" 
     width="24px" 
-    fill="none"
+    fill="black"
     style={{ cursor: 'pointer' }}>
       
     <path 

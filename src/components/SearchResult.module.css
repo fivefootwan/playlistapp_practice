@@ -51,6 +51,7 @@ margin: 10px 0;
 .AddToPlaylistHeader{
   display: flex;
   gap: 2%;
+  align-items: center;
 }
 
 .Playlist{
