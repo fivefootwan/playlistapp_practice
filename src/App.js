@@ -49,9 +49,6 @@ function App() {
                 <SearchResult tracks={searchResults} /> {/* ✅ step 3 */}
                 <Playlist/>
               </div>
-              <div>
-                <AddToPlaylist/>
-              </div>
             </div>
           }
         />
