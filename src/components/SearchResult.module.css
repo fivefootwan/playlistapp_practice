@@ -56,4 +56,5 @@ margin: 10px 0;
 .Playlist{
   display: flex;
   gap:2%;
+  align-items: center;
 }
