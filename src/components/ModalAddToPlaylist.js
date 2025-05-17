@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './SearchResult.module.css';
-import {PlusIcon, OpenIcon, RemoveIcon} from '../assets/Icons';
+import {PlusIcon, OpenIcon, RemoveIcon, CloseIcon} from '../assets/Icons';
 
 export default function AddToPlaylist({onClose}) {
     return (
@@ -9,7 +9,7 @@ export default function AddToPlaylist({onClose}) {
 
                 <div className={styles.AddToPlaylistHeader}>
                     <h3>Add to Playlist</h3>
-                    <button className={styles.CrossClose} onClick={onClose}>Close</button>
+                    <CloseIcon className={styles.CrossClose} onClick={onClose} />
                 </div>
 
                 <div className={styles.Playlist}>
@@ -21,7 +21,7 @@ export default function AddToPlaylist({onClose}) {
                 <div className={styles.Playlist}>
                     <p>Playlist Name 2</p>
                     <PlusIcon className={styles.AddAction}/> {/* this is where to connect with playlist */}
-                    <button className={styles.RemoveAction}>Remove</button>
+                    <RemoveIcon className={styles.RemoveAction}/>
                 </div>
 
             </div>
