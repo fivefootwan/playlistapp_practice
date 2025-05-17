@@ -3,6 +3,8 @@
     text-align: left;
     background-color: aqua;
     flex: 1;
+    min-width: 0; /* 🚨 CRUCIAL for flex-shrink to work */
+    overflow: hidden; /* Optional: avoids bleed if inner content overflows */
 
 }
 .PlaylistHeader {

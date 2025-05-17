@@ -23,11 +23,11 @@
   color: white;
 }
 
-.App-body {
+.App-Body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 20px; /* space between columns */
+  gap: 150px; /* space between columns */
 } 
 .App-link {
   color: #61dafb;

@@ -1,9 +1,9 @@
 .Result {
     margin-top: 5vh;
     background-color: brown;
-    width: 65vw;
-    margin-left: 0;
-    margin-right: auto;
+    /* width: 65vw; <- remove for flex*/
+    /* margin-left: 0;
+    margin-right: auto;*/
     flex: 2;
   }
 
