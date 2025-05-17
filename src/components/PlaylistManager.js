@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom/client';
 import styles from './Playlist.module.css';
+import RenamePlaylist from './ModalRenamePlaylist'
 import ShowPlaylist from './ModalShowPlaylist';
-import {PlusIcon, OpenIcon} from '../assets/Icons';
+import {PlusIcon, OpenIcon, EditIcon} from '../assets/Icons';
 import {ModalCreatePlaylist} from './ModalCreatePlaylist';
   
 function Playlist() {
     const [isModalCreateOpen, setIsModalCreateOpen] = useState(false);
     const [showModal, setModalShowModal] = useState(false);
+    const [renamePlaylistModal, setRenamePlaylistModal] = useState(false);
 
 
     return (
@@ -34,7 +36,11 @@ function Playlist() {
                 <div className={styles.Playlist}>
                     <p>Playlist Title</p>
                     {/* <button className={styles.OpenPlaylist} type="button">Open Playlist</button> */}
+                    <EditIcon onClick={() => setRenamePlaylistModal(true)}/>
                     <OpenIcon onClick={() => setModalShowModal(true)} />
+                    {renamePlaylistModal && (
+                    <RenamePlaylist onClose={() => setRenamePlaylistModal(false)} />
+                    )} {/* ???? */}
                 </div>
 
                 <div className={styles.Playlist}>
@@ -53,6 +59,7 @@ function Playlist() {
             {showModal && (
             <ShowPlaylist onClose={() => setModalShowModal(false)} />
             )}
+
         </div>
     )
 
