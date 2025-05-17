@@ -44,10 +44,21 @@ export function OpenIcon({ size = 24, color = "black", onClick }) {
     );
   }
 
-export function RemoveIcon ({onClick}) {
+export function RemoveIcon ({ onClick }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#666666">
-      <path d="M200-440v-80h560v80H200Z"/>
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      height="24px" 
+      viewBox="0 -960 960 960" 
+      width="24px" 
+      fill="#666666"
+      onClick={onClick}>
+      
+    <path 
+      d="M200-440v-80h560v80H200Z"
+      stroke="black"
+      />
+
     </svg>
   )
   }
