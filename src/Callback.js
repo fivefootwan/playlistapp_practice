@@ -34,7 +34,7 @@ function Callback() {
         console.log("🎟 Access Token: ", data.access_token);
         localStorage.setItem("access_token", data.access_token);
         // Optionally redirect to home
-       // window.location.href = '/';
+        window.location.href = '/';
       })
       .catch(err => {
         console.error("Error getting token", err);

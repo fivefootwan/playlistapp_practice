@@ -1,6 +1,7 @@
 import './App.css';
 import SearchBar from './components/SearchBar';
 import SearchResult from './components/SearchResult';
+import Playlist from "./components/Playlist";
 import SpotifyLogin from './components/SpotifyLogin';
 import Callback from './Callback';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
