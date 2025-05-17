@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom/client';
 import styles from './Playlist.module.css';
+import ShowPlaylist from './ModalShowPlaylist';
 import {PlusIcon, OpenIcon} from '../assets/Icons';
 import {ModalCreatePlaylist} from './ModalCreatePlaylist';
   
 function Playlist() {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+
 
     return (
         <div className={styles.PlaylistsContainer}>
@@ -31,7 +34,7 @@ function Playlist() {
                 <div className={styles.Playlist}>
                     <p>Playlist Title</p>
                     {/* <button className={styles.OpenPlaylist} type="button">Open Playlist</button> */}
-                    <OpenIcon onClick={() => console.log("Plus clicked!")} />
+                    <OpenIcon onClick={() => setShowModal(true)} />
                 </div>
 
                 <div className={styles.Playlist}>
@@ -47,7 +50,9 @@ function Playlist() {
                 </div>
 
             </div>
-
+            {showModal && (
+            <ShowPlaylist onClose={() => setShowModal(false)} />
+            )}
         </div>
     )
 
