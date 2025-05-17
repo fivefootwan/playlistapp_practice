@@ -4,6 +4,7 @@
     width: 65vw;
     margin-left: 0;
     margin-right: auto;
+    flex: 2;
   }
 
 .Tracklist{

@@ -45,8 +45,8 @@ function App() {
                 <SearchBar onSearch={handleSearch} />
               </header>
               <div className="App-Body">
-                <Playlist/>
                 <SearchResult tracks={searchResults} /> {/* ✅ step 3 */}
+                <Playlist/>
               </div>
             </div>
           }

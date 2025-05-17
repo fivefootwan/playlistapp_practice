@@ -2,6 +2,7 @@
     color:grey;
     text-align: left;
     background-color: aqua;
+    flex: 1;
 
 }
 .PlaylistHeader {
