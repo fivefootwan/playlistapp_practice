@@ -52,7 +52,9 @@ export function RemoveIcon ({ onClick }) {
       viewBox="0 -960 960 960" 
       width="24px" 
       fill="#666666"
-      onClick={onClick}>
+      onClick={onClick}
+      style={{ cursor: 'pointer' }}
+      >
       
     <path 
       d="M200-440v-80h560v80H200Z"
