@@ -21,12 +21,13 @@
   gap: 2%;
   text-align: left;
   align-items: center;
+  background-color: lightgreen;
 }
 
 .TrackInfo {
   display: flex;
   gap: 5px;
-  background-color: greenyellow;
+  background-color: darkgreen;
   text-align: left;
   align-items: center;
   color: white;
