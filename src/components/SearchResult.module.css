@@ -8,28 +8,31 @@
     min-height: 300px;
   }
 
+.ResultTitle {
+    font-size: 40px;  
+    color: white;
+  }
+
 .TrackItem {
     background-color: green;
+    color: white;
     text-align: left;
     display: flex;
     gap: 2%;
     align-items: center;
 }
 
+.PlayButton {
+  background-color: maroon;
+}
+
+
 .TrackName {
   font-size: 15px;
   font-weight: bold;
 }
 
-.ResultTitle {
-  font-size: 40px;  
-  color: white;
-}
 
-.TrackInfo{
-    color: white;
-
-}
 
 .Line {
 border: none;

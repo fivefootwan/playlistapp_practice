@@ -26,11 +26,12 @@ function SearchResult({ tracks, playlists, addTrackToPlaylist }) {
       ) : ( 
       <>
       <h2 className={styles.ResultTitle}>Results</h2>,
+
       <div className={styles.TrackList}>
       {tracks.map((track) => (
         <div key={track.id} className={styles.TrackItem}>
 
-          <div className={styles.TrackInfo}>
+          <div>
             <p className={styles.TrackName}>{track.name}</p>
             <p>{track.artists[0].name}</p>
           </div>
@@ -42,7 +43,7 @@ function SearchResult({ tracks, playlists, addTrackToPlaylist }) {
             <PlusIcon />
           </button>
 
-          <button type='button'>Play</button>
+          <button type='button' className={styles.PlayButton}>Play</button>
 
           <hr className={styles.Line} />
         </div>
