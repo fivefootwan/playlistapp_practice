@@ -13,10 +13,21 @@ function PlaylistManager({ playlists, addPlaylist }) { // ← UPDATED: function 
 
   return (
     <div className={styles.PlaylistsContainer}>
+
       <div className={styles.PlaylistHeader}>
         <h2>Your Playlists</h2>
         <PlusIcon onClick={() => setIsModalCreateOpen(true)} /> {/* ← NEW */}
       </div>
+
+      {isModalCreateOpen && (
+        <ModalCreatePlaylist
+          onClose={() => setIsModalCreateOpen(false)}
+          onCreate={(name) => {
+            addPlaylist(name); // ← NEW
+            setIsModalCreateOpen(false); // ← NEW
+          }}
+        />
+      )}
 
       <div className={styles.Playlists}> {/* ← NEW */}
         {playlists.map((playlist) => (
@@ -30,15 +41,6 @@ function PlaylistManager({ playlists, addPlaylist }) { // ← UPDATED: function 
         ))}
       </div>
 
-      {isModalCreateOpen && (
-        <ModalCreatePlaylist
-          onClose={() => setIsModalCreateOpen(false)}
-          onCreate={(name) => {
-            addPlaylist(name); // ← NEW
-            setIsModalCreateOpen(false); // ← NEW
-          }}
-        />
-      )}
     </div>
   );
 }

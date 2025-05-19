@@ -11,6 +11,8 @@
 .Tracklist{
     background-color: green;
     text-align: left;
+    display: flex;
+    gap: 2%;
 }
 
 .ResultTitle {
@@ -18,7 +20,7 @@
   color: white;
 }
 
-.SongTitle, .ArtistName{
+.TrackInfo{
     color: white;
 }
 
