@@ -1,28 +1,50 @@
 import React, { useState } from 'react';
 import styles from './SearchResult.module.css';
-import AddToPlaylist from './ModalAddToPlaylist';
+import ModalAddToPlaylist from './ModalAddToPlaylist';
+import { PlusIcon } from '../assets/Icons';
 
-function SearchResult({ tracks }) {
-  const [showAddModal, setShowAddModal] = useState(false);
+function SearchResult({ tracks, playlists, addTrackToPlaylist }) {
+  const [selectedTrack, setSelectedTrack] = useState(null); // ← NEW
+  const [isModalOpen, setIsModalOpen] = useState(false); // ← NEW
+
+  const handleAddToPlaylist = (track) => { // ← NEW
+    setSelectedTrack(track);
+    setIsModalOpen(true);
+  };
+
+  const handleSelectPlaylist = (playlistId) => { // ← NEW
+    addTrackToPlaylist(selectedTrack, playlistId);
+    setIsModalOpen(false);
+    setSelectedTrack(null);
+  };
 
   return (
     <div className={styles.Result}> {/* ✅ Always render container to keep layout consistent */}
       <h2 className={styles.ResultTitle}>Results</h2>
 
-      {(!tracks || tracks.length === 0) ? ( // ✅ Conditional content rendering only
-        <p>No results found.</p>            // ✅ Instead of returning early, show message here
-      ) : (
-        tracks.map(track => (
-          <div key={track.id} className={styles.Tracklist}>
-            <span className={styles.SongTitle}>{track.name}</span>
-            <span className={styles.ArtistName}>{track.artists[0].name}</span>
-        <button className={styles.PlayButton}>Play</button>
-            <button className={styles.AddToPlaylistButton} onClick={() => setShowAddModal(true)}>Save to Playlist</button>
-            <hr className={styles.Line} />
+      {tracks.map((track) => (
+        <div key={track.id} className={styles.TrackItem}>
+          <div className={styles.TrackInfo}>
+            <p>{track.name}</p>
+            <p>{track.artists[0].name}</p>
           </div>
-        ))
-      )}
-    {showAddModal && <AddToPlaylist onClose={() => setShowAddModal(false)} />}
+          <button
+            className={styles.AddToPlaylistButton}
+            onClick={() => handleAddToPlaylist(track)} // ← NEW
+          >
+            <PlusIcon />
+          </button>
+          <hr className={styles.Line} />
+        </div>
+      ))}
+
+    {isModalOpen && (
+        <ModalAddToPlaylist
+          playlists={playlists} // ← NEW
+          track={selectedTrack} // ← NEW
+          onSelect={handleSelectPlaylist} // ← NEW
+          onClose={() => setIsModalOpen((false))} />)}
+  
     </div>
   );
 }

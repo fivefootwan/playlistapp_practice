@@ -1,18 +1,37 @@
 import './App.css';
 import SearchBar from './components/SearchBar';
 import SearchResult from './components/SearchResult';
-import Playlist from "./components/PlaylistManager";
+import PlaylistManager from "./components/PlaylistManager";
 import SpotifyLogin from './components/SpotifyLogin';
-import AddToPlaylist from "./components/ModalAddToPlaylist";
 import Callback from './Callback';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useState } from 'react'; // ✅ add this
+import { useState } from 'react';
+
 
 function App() {
-  const [searchResults, setSearchResults] = useState([]); // ✅ step 1
+  const [searchResults, setSearchResults] = useState([]);
+  const [playlists, setPlaylists] = useState([]); // ← NEW
+
+  const addPlaylist = (name) => { // ← NEW
+    const newPlaylist = {
+      id: Date.now(),
+      name,
+      tracks: []
+    };
+    setPlaylists(prev => [...prev, newPlaylist]);
+  };
+
+  const addTrackToPlaylist = (track, playlistId) => { // ← NEW
+    setPlaylists(prev =>
+      prev.map(pl =>
+        pl.id === playlistId
+          ? { ...pl, tracks: [...pl.tracks, track] }
+          : pl
+      )
+    );
+  };
 
   function handleSearch(term) {
-    console.log("Received in App:", term);
     const accessToken = localStorage.getItem("access_token");
     if (!accessToken) {
       console.error("No access token — please log in to Spotify.");
@@ -26,8 +45,7 @@ function App() {
     })
       .then(res => res.json())
       .then(data => {
-        console.log("🎵 Search Results:", data.tracks.items);
-        setSearchResults(data.tracks.items); // ✅ step 2
+        setSearchResults(data.tracks.items);
       })
       .catch(err => {
         console.error("Spotify search failed", err);
@@ -41,13 +59,18 @@ function App() {
           path="/"
           element={
             <div className="App">
-              <div><SpotifyLogin /></div>
-              <header>
-                <SearchBar onSearch={handleSearch} />
-              </header>
+              <SpotifyLogin />
+              <SearchBar onSearch={handleSearch} />
               <div className="App-Body">
-                <SearchResult tracks={searchResults} /> {/* ✅ step 3 */}
-                <Playlist/>
+                <SearchResult
+                  tracks={searchResults}
+                  playlists={playlists} // ← NEW
+                  addTrackToPlaylist={addTrackToPlaylist} // ← NEW
+                />
+                <PlaylistManager
+                  playlists={playlists}
+                  addPlaylist={addPlaylist}
+                />
               </div>
             </div>
           }

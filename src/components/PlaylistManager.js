@@ -1,76 +1,46 @@
-import React, {useState} from 'react';
-import ReactDOM from 'react-dom/client';
+import React, { useState } from 'react';
 import styles from './Playlist.module.css';
-import RenamePlaylist from './ModalRenamePlaylist'
+import RenamePlaylist from './ModalRenamePlaylist';
 import ShowPlaylist from './ModalShowPlaylist';
-import {PlusIcon, OpenIcon, EditIcon} from '../assets/Icons';
-import {ModalCreatePlaylist} from './ModalCreatePlaylist';
-  
-function Playlist() {
-    const [isModalCreateOpen, setIsModalCreateOpen] = useState(false);
-    const [showModal, setModalShowModal] = useState(false);
-    const [renamePlaylistModal, setRenamePlaylistModal] = useState(false);
+import { PlusIcon, OpenIcon, EditIcon } from '../assets/Icons';
+import ModalCreatePlaylist from './ModalCreatePlaylist';
 
 
-    return (
-        <div className={styles.PlaylistsContainer}>
+function PlaylistManager({ playlists, addPlaylist }) { // ← UPDATED: function name matches file
+  const [isModalCreateOpen, setIsModalCreateOpen] = useState(false); // ← NEW
+  const [showModal, setModalShowModal] = useState(false);
+  const [renamePlaylistModal, setRenamePlaylistModal] = useState(false);
 
-            <div className={styles.PlaylistHeader}>
-                <h2>Your Playlists</h2>
-                {/* <button className={styles.CreatePlaylist} type="button">New Playlist</button> */}
-                <PlusIcon onClick={() => setIsModalCreateOpen(true)} />
-            </div>
+  return (
+    <div className={styles.PlaylistsContainer}>
+      <div className={styles.PlaylistHeader}>
+        <h2>Your Playlists</h2>
+        <PlusIcon onClick={() => setIsModalCreateOpen(true)} /> {/* ← NEW */}
+      </div>
 
-            {isModalCreateOpen && ( //if isModalOpen is true then render the component below
-            <ModalCreatePlaylist 
-                onClose={() => setIsModalCreateOpen(false)}
-                onCreate={(playlistName) => {
-                console.log("Create playlist with name:", playlistName);
-                setIsModalCreateOpen(false);
-                }}
-            />
-            )}
+      <div className={styles.Playlists}> {/* ← NEW */}
+        {playlists.map((playlist) => (
+          <div key={playlist.id} className={styles.Playlist}>
+            <p>{playlist.name}</p>
+            <EditIcon onClick={() => setRenamePlaylistModal(true)}/>
+            <OpenIcon onClick={() => setModalShowModal(true)} />
+            {renamePlaylistModal && (
+            <RenamePlaylist onClose={() => setRenamePlaylistModal(false)} /> )} 
+          </div>
+        ))}
+      </div>
 
+      {isModalCreateOpen && (
+        <ModalCreatePlaylist
+          onClose={() => setIsModalCreateOpen(false)}
+          onCreate={(name) => {
+            addPlaylist(name); // ← NEW
+            setIsModalCreateOpen(false); // ← NEW
+          }}
+        />
+      )}
+    </div>
+  );
+}
 
-            <div className={styles.Playlists}>
-                <div className={styles.Playlist}>
-                    <p>Playlist Title</p>
-                    {/* <button className={styles.OpenPlaylist} type="button">Open Playlist</button> */}
-                    <EditIcon onClick={() => setRenamePlaylistModal(true)}/>
-                    <OpenIcon onClick={() => setModalShowModal(true)} />
-                    {renamePlaylistModal && (
-                    <RenamePlaylist onClose={() => setRenamePlaylistModal(false)} />
-                    )} 
-                </div>
-
-                <div className={styles.Playlist}>
-                    <p>Playlist Title</p>
-                    {/* <button className={styles.OpenPlaylist} type="button">Open Playlist</button> */}
-                    <EditIcon onClick={() => setRenamePlaylistModal(true)}/>
-                    <OpenIcon onClick={() => setModalShowModal(true)} />
-                    {renamePlaylistModal && (
-                    <RenamePlaylist onClose={() => setRenamePlaylistModal(false)} />
-                    )}
-                </div>
-
-                <div className={styles.Playlist}>
-                <p>Playlist Title</p>
-                    {/* <button className={styles.OpenPlaylist} type="button">Open Playlist</button> */}
-                    <EditIcon onClick={() => setRenamePlaylistModal(true)}/>
-                    <OpenIcon onClick={() => setModalShowModal(true)} />
-                    {renamePlaylistModal && (
-                    <RenamePlaylist onClose={() => setRenamePlaylistModal(false)} />
-                    )}
-                </div>
-
-            </div>
-            {showModal && (
-            <ShowPlaylist onClose={() => setModalShowModal(false)} />
-            )}
-
-        </div>
-    )
-
-};
-
-export default Playlist;
+export default PlaylistManager;
