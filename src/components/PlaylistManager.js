@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Playlist.module.css';
 import RenamePlaylist from './ModalRenamePlaylist';
-import ShowPlaylist from './ModalShowPlaylist';
+import ModalShowPlaylist from './ModalShowPlaylist';
 import { PlusIcon, OpenIcon, EditIcon } from '../assets/Icons';
 import ModalCreatePlaylist from './ModalCreatePlaylist';
 
@@ -33,10 +33,15 @@ function PlaylistManager({ playlists, addPlaylist }) { // ← UPDATED: function 
         {playlists.map((playlist) => (
           <div key={playlist.id} className={styles.Playlist}>
             <p>{playlist.name}</p>
+
             <EditIcon onClick={() => setRenamePlaylistModal(true)}/>
-            <OpenIcon onClick={() => setModalShowModal(true)} />
             {renamePlaylistModal && (
             <RenamePlaylist onClose={() => setRenamePlaylistModal(false)} /> )} 
+
+            <OpenIcon onClick={() => setModalShowModal(true)}/>               
+            {showModal && (
+            <ModalShowPlaylist onClose={() => setModalShowModal(false)}/>)}
+
           </div>
         ))}
       </div>
