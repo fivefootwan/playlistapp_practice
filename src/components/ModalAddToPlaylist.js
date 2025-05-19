@@ -7,6 +7,7 @@ function ModalAddToPlaylist({ playlists, track, onSelect, onClose }) { // ← NE
     <div className={styles.PopUpBackdrop}>
 
      <div className={styles.AddToPlayList}>
+
 	    <div className={styles.AddToPlaylistHeader}>
 	      <h3>Select a Playlist</h3>
 	      <CloseIcon className={styles.CrossClose} onClick={onClose} />
@@ -16,8 +17,7 @@ function ModalAddToPlaylist({ playlists, track, onSelect, onClose }) { // ← NE
 	        {playlists.map((playlist) => (
                 <>
                     <div classname={styles.OnePlaylist}>
-                        <p key={playlist.id}>
-                        {playlist.name}</p>
+                        <p key={playlist.id}>{playlist.name}</p>
                         <button onClick={() => onSelect(playlist.id)}>Add</button> {/* ← NEW */}
                     </div>
                 </>
