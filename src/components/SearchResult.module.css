@@ -24,19 +24,28 @@
 
 .TrackItem {
   margin-top: 2vh;
-  padding: 10%;
+  padding: 10px;
   display: flex;
   gap: 2%;
-}
-
-.PlayButton {
-  background-color: maroon;
 }
 
 
 .TrackName {
   font-size: 15px;
   font-weight: bold;
+}
+
+.ArtistName {
+  font-size: 10px;
+}
+
+.ActionButtons {
+  display: flex;
+  gap: 2%;
+}
+
+.PlayButton {
+  background-color: maroon;
 }
 
 .Line {

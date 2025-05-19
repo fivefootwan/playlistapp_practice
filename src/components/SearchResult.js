@@ -33,7 +33,7 @@ function SearchResult({ tracks, playlists, addTrackToPlaylist }) {
 
           <div className={styles.TrackInfo}>
             <p className={styles.TrackName}>{track.name}</p>
-            <p>{track.artists[0].name}</p>
+            <p className={styles.ArtistName}>{track.artists[0].name}</p>
           </div>
           
           <div className={styles.ActionButtons}>
