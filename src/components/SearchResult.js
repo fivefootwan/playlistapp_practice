@@ -20,7 +20,6 @@ function SearchResult({ tracks, playlists, addTrackToPlaylist }) {
 
   return (
     <div className={styles.Result}> {/* ✅ Always render container to keep layout consistent */}
-      <h2 className={styles.ResultTitle}>Results</h2>
 
       {(!tracks || tracks.length === 0) ? ( // ✅ Conditional content rendering only
         <p>No results found.</p>            // ✅ Instead of returning early, show message here
@@ -29,6 +28,7 @@ function SearchResult({ tracks, playlists, addTrackToPlaylist }) {
       <div className={styles.TrackList}>
       {tracks.map((track) => (
         <div key={track.id} className={styles.TrackItem}>
+          <h2 className={styles.ResultTitle}>Results</h2>
           <div className={styles.TrackInfo}>
             <p>{track.name}</p>
             <p>{track.artists[0].name}</p>
@@ -45,7 +45,7 @@ function SearchResult({ tracks, playlists, addTrackToPlaylist }) {
           <hr className={styles.Line} />
         </div>
       ))}
-      </div> )}; 
+      </div> )}
 
     {isModalOpen && (
         <ModalAddToPlaylist
