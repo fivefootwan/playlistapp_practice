@@ -79,7 +79,7 @@ margin: 10px 0;
   padding: 15px;
 }
 
-.PlaylistHeader, .SongsinPlaylist{
+.PlaylistHeader {
   display: flex;
   gap: 2%;
   align-items: center;
@@ -91,7 +91,13 @@ margin: 10px 0;
   align-items: center;
 }
 
-.Playlist, .OnePlaylist{
+.Playlist{
+  display: flex;
+  gap:2%;
+  align-items: center;
+}
+
+.OnePlaylist{
   display: flex;
   gap:2%;
   align-items: center;
