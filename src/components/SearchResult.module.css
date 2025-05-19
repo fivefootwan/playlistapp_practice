@@ -91,11 +91,7 @@ margin: 10px 0;
   align-items: center;
 }
 
-.Playlist{
-  display: flex;
-  gap:2%;
-  align-items: center;
-}
+
 
 .OnePlaylist{
   display: flex;
