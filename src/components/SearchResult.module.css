@@ -8,7 +8,7 @@
     min-height: 300px;
   }
 
-.Tracklist{
+.TrackItem{
     background-color: green;
     text-align: left;
     display: flex;
@@ -22,6 +22,7 @@
 
 .TrackInfo{
     color: white;
+
 }
 
 .Line {
