@@ -16,7 +16,7 @@ function ModalAddToPlaylist({ playlists, track, onSelect, onClose }) { // ← NE
         <div className={styles.Playlist}>
 	        {playlists.map((playlist) => (
                 <>
-                    <div classname={styles.OnePlaylist}>
+                    <div className={styles.OnePlaylist}>
                         <p key={playlist.id}>{playlist.name}</p>
                         <button onClick={() => onSelect(playlist.id)}>Add</button> {/* ← NEW */}
                     </div>
