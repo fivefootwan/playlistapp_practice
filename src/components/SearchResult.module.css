@@ -24,6 +24,9 @@
 
 .TrackItem {
   margin-top: 2vh;
+  padding: 10%;
+  display: flex;
+  gap: 2%;
 }
 
 .PlayButton {
