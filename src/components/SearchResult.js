@@ -29,8 +29,6 @@ function SearchResult({ tracks, playlists, addTrackToPlaylist }) {
       <div className={styles.TrackList}>
       {tracks.map((track) => (
         <div key={track.id} className={styles.TrackItem}>
-          
-          <h2 className={styles.ResultTitle}>Results</h2>
           <div className={styles.TrackInfo}>
             <p>{track.name}</p>
             <p>{track.artists[0].name}</p>
