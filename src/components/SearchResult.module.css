@@ -82,11 +82,11 @@ margin: 10px 0;
 .AddToPlaylistHeader{
   display: flex;
   gap: 2%;
-  align-items: left;
+  align-items: center;
 }
 
 .OnePlaylist {
   display: flex;
   gap: 2%;
-  align-items: left;
+  align-items: center;
 }
