@@ -13,13 +13,17 @@
     color: white;
   }
 
-.TrackItem {
+.TrackItem, .TrackInfo {
     background-color: green;
     color: white;
     text-align: left;
     display: flex;
     gap: 2%;
     align-items: center;
+}
+
+.TrackItem {
+  margin-top: 2vh;
 }
 
 .PlayButton {
@@ -31,8 +35,6 @@
   font-size: 15px;
   font-weight: bold;
 }
-
-
 
 .Line {
 border: none;

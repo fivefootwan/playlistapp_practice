@@ -31,19 +31,20 @@ function SearchResult({ tracks, playlists, addTrackToPlaylist }) {
       {tracks.map((track) => (
         <div key={track.id} className={styles.TrackItem}>
 
-          <div>
+          <div className={styles.TrackInfo}>
             <p className={styles.TrackName}>{track.name}</p>
             <p>{track.artists[0].name}</p>
           </div>
           
+          <div className={styles.ActionButtons}>
           <button
             className={styles.AddToPlaylistButton}
             onClick={() => handleAddToPlaylist(track)} // ← NEW
           >
             <PlusIcon />
           </button>
-
           <button type='button' className={styles.PlayButton}>Play</button>
+          </div>
 
           <hr className={styles.Line} />
         </div>
