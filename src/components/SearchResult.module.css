@@ -58,6 +58,8 @@ background-color: #ccc; /* light grey line */
 margin: 10px 0;
 }
 
+/* ADD TO PLAYLIST MODAL*/
+
 .PopUpBackdrop {
   position: fixed;             /* makes it float above all content */
   top: 0;
@@ -89,7 +91,7 @@ margin: 10px 0;
   align-items: center;
 }
 
-.Playlist{
+.Playlist, .OnePlaylist{
   display: flex;
   gap:2%;
   align-items: center;
