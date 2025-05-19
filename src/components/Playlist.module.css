@@ -1,4 +1,6 @@
 .PlaylistsContainer {
+    padding: 10px;
+    border-radius: 10px;
     margin-top: 5vh;
     color:grey;
     text-align: left;
@@ -9,6 +11,7 @@
 
 }
 .PlaylistHeader {
+    padding: 0 10px;
     display: flex;
     align-items: center;
     gap: 2%;
@@ -20,8 +23,9 @@
 }
 
 .Playlist {
+    padding: 0 10px;
     display: flex;
-    margin: 20px 0;
+    margin-top: 5px;
     background-color: blueviolet;
     align-items: center;
     gap: 2%;
@@ -44,8 +48,6 @@
     align-items: center;
 }
 
-.RenameButton {
-}
 
 .PopUpBackdrop {
     position: fixed;             /* makes it float above all content */
