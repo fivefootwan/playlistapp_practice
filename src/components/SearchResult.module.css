@@ -8,7 +8,7 @@
     min-height: 300px;
   }
 
-.TrackItem, .TrackInto{
+.TrackItem, .TrackInfo{
     background-color: green;
     text-align: left;
     display: flex;
