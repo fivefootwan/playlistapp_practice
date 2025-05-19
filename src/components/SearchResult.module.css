@@ -8,11 +8,16 @@
     min-height: 300px;
   }
 
-.TrackItem{
+.TrackItem, .TrackInto{
     background-color: green;
     text-align: left;
     display: flex;
     gap: 2%;
+}
+
+.TrackName {
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .ResultTitle {
