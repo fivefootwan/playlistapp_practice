@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styles from './Playlist.module.css';
-import RenamePlaylist from './ModalRenamePlaylist';
+import ModalRenamePlaylist from './ModalRenamePlaylist';
 import ModalShowPlaylist from './ModalShowPlaylist';
 import { PlusIcon, OpenIcon, EditIcon } from '../assets/Icons';
 import ModalCreatePlaylist from './ModalCreatePlaylist';
 
 
-function PlaylistManager({ playlists, addPlaylist }) { // ← UPDATED: function name matches file
+function PlaylistManager({ playlists, addPlaylist, onRemove }) { // ← UPDATED: function name matches file
   const [isModalCreateOpen, setIsModalCreateOpen] = useState(false); // ← NEW
   const [showModal, setModalShowModal] = useState(false);
   const [renamePlaylistModal, setRenamePlaylistModal] = useState(false);
@@ -36,7 +36,7 @@ function PlaylistManager({ playlists, addPlaylist }) { // ← UPDATED: function 
 
             <EditIcon onClick={() => setRenamePlaylistModal(true)}/>
             {renamePlaylistModal && (
-            <RenamePlaylist onClose={() => setRenamePlaylistModal(false)} /> )} 
+            <ModalRenamePlaylist onClose={() => setRenamePlaylistModal(false)} /> )} 
 
             <OpenIcon 
             onClick={() => {
@@ -48,7 +48,7 @@ function PlaylistManager({ playlists, addPlaylist }) { // ← UPDATED: function 
             <ModalShowPlaylist 
             playlist={selectedPlaylist} // <- passes the playlist as a prop
             onClose={() => {setModalShowModal(false)}}
-            
+            onRemove={onRemove}
             />)}
 
           </div>

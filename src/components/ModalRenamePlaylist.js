@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from "./Playlist.module.css";
 import {CloseIcon} from "../assets/Icons";
 
-export default function RenamePlaylist({onClose}) {
+export default function ModalRenamePlaylist({onClose}) {
     return (
         <div className={styles.PopUpBackdrop}>
             <div className={styles.RenamePlaylist}>

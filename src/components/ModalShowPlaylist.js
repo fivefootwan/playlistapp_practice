@@ -2,7 +2,7 @@ import React, { useState} from "react";
 import {PlusIcon, OpenIcon, RemoveIcon, CloseIcon, PlayIcon} from '../assets/Icons';
 import styles from './SearchResult.module.css'
 
-export default function ModalShowPlaylist({ onClose, playlist }) {
+export default function ModalShowPlaylist({ onClose, playlist, onRemove }) {
 
     return (
         <div className={styles.PopUpBackdrop}>
@@ -20,7 +20,9 @@ export default function ModalShowPlaylist({ onClose, playlist }) {
                     <p>{track.name}</p>   
                     <p>{track.artists[0].name}</p>   
                     <PlayIcon/>
-                    <RemoveIcon/>
+                    <RemoveIcon onClick={() => onRemove(index, playlist.id) 
+                        
+                    }/>
                 </div>
                  ))}
                 </div>

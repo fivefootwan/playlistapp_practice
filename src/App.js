@@ -31,6 +31,19 @@ function App() {
     );
   };
 
+  const removeTrackFromPlaylist = (trackIndex, playlistId) => {
+    setPlaylists(prev =>
+      prev.map(pl =>
+        pl.id === playlistId
+          ? {
+              ...pl,
+              tracks: pl.tracks.filter((_, i) => i !== trackIndex), // remove one track
+            }
+          : pl
+      )
+    );
+  };
+
   function handleSearch(term) {
     const accessToken = localStorage.getItem("access_token");
     if (!accessToken) {
@@ -70,6 +83,8 @@ function App() {
                 <PlaylistManager
                   playlists={playlists}
                   addPlaylist={addPlaylist}
+                  onRemove={removeTrackFromPlaylist}
+
                 />
               </div>
             </div>
