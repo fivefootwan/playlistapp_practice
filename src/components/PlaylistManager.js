@@ -6,11 +6,11 @@ import { PlusIcon, OpenIcon, EditIcon } from '../assets/Icons';
 import ModalCreatePlaylist from './ModalCreatePlaylist';
 
 
-function PlaylistManager({ playlists, addPlaylist, onRemove }) { // ← UPDATED: function name matches file
+function PlaylistManager({ playlists, addPlaylist, onRemove, onRename }) { // ← UPDATED: function name matches file
   const [isModalCreateOpen, setIsModalCreateOpen] = useState(false); // ← NEW
   const [showModal, setModalShowModal] = useState(false);
   const [renamePlaylistModal, setRenamePlaylistModal] = useState(false);
-  const [selectedPlaylist, setSelectedPlaylist] = useState(false);
+  const [selectedPlaylist, setSelectedPlaylist] = useState(null);
 
   return (
     <div className={styles.PlaylistsContainer}>
@@ -36,7 +36,11 @@ function PlaylistManager({ playlists, addPlaylist, onRemove }) { // ← UPDATED:
 
             <EditIcon onClick={() => setRenamePlaylistModal(true)}/>
             {renamePlaylistModal && (
-            <ModalRenamePlaylist onClose={() => setRenamePlaylistModal(false)} /> )} 
+            <ModalRenamePlaylist 
+            playlist={playlist} // still dont understand why
+            onRename={onRename}
+            onClose={() => setRenamePlaylistModal(false)} 
+            /> )} 
 
             <OpenIcon 
             onClick={() => {

@@ -10,7 +10,7 @@ import { useState } from 'react';
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
-  const [playlists, setPlaylists] = useState([]); // ← NEW
+  const [playlists, setPlaylists] = useState([]); // 
 
   const addPlaylist = (name) => { // ← NEW
     const newPlaylist = {
@@ -20,6 +20,17 @@ function App() {
     };
     setPlaylists(prev => [...prev, newPlaylist]);
   };
+
+  const renamePlaylist = (playlistId, newName) => {
+    setPlaylists(prev =>
+      prev.map(pl =>
+        pl.id === playlistId
+          ? { ...pl, name: newName } // ← replace just the name
+          : pl
+      )
+    );    
+
+  }
 
   const addTrackToPlaylist = (track, playlistId) => { // ← NEW
     setPlaylists(prev =>
@@ -77,13 +88,14 @@ function App() {
               <div className="App-Body">
                 <SearchResult
                   tracks={searchResults}
-                  playlists={playlists} // ← NEW
-                  addTrackToPlaylist={addTrackToPlaylist} // ← NEW
+                  playlists={playlists} 
+                  addTrackToPlaylist={addTrackToPlaylist} 
                 />
                 <PlaylistManager
                   playlists={playlists}
                   addPlaylist={addPlaylist}
                   onRemove={removeTrackFromPlaylist}
+                  onRename={renamePlaylist}
 
                 />
               </div>
