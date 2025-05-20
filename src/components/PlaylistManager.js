@@ -46,7 +46,7 @@ function PlaylistManager({ playlists, addPlaylist, onRemove }) { // ← UPDATED:
             />               
             {showModal && (
             <ModalShowPlaylist 
-            playlist={selectedPlaylist} // <- passes the playlist as a prop
+            playlist={playlists.find(pl => pl.id === selectedPlaylist.id)} // ← get fresh copy of playlist
             onClose={() => {setModalShowModal(false)}}
             onRemove={onRemove}
             />)}
