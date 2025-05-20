@@ -10,6 +10,7 @@ function PlaylistManager({ playlists, addPlaylist }) { // ← UPDATED: function 
   const [isModalCreateOpen, setIsModalCreateOpen] = useState(false); // ← NEW
   const [showModal, setModalShowModal] = useState(false);
   const [renamePlaylistModal, setRenamePlaylistModal] = useState(false);
+  const [selectedPlaylist, setSelectedPlaylist] = useState(false);
 
   return (
     <div className={styles.PlaylistsContainer}>
@@ -24,7 +25,6 @@ function PlaylistManager({ playlists, addPlaylist }) { // ← UPDATED: function 
           onClose={() => setIsModalCreateOpen(false)}
           onCreate={(name) => {
             addPlaylist(name); // ← NEW
-            setIsModalCreateOpen(false); // ← NEW
           }}
         />
       )}
@@ -38,9 +38,18 @@ function PlaylistManager({ playlists, addPlaylist }) { // ← UPDATED: function 
             {renamePlaylistModal && (
             <RenamePlaylist onClose={() => setRenamePlaylistModal(false)} /> )} 
 
-            <OpenIcon onClick={() => setModalShowModal(true)}/>               
+            <OpenIcon 
+            onClick={() => {
+              setSelectedPlaylist(playlist); // ← stores selected playlsit
+              setModalShowModal(true);  
+              }} 
+            />               
             {showModal && (
-            <ModalShowPlaylist onClose={() => setModalShowModal(false)}/>)}
+            <ModalShowPlaylist 
+            playlist={selectedPlaylist} // <- passes the playlist as a prop
+            onClose={() => {setModalShowModal(false)}}
+            
+            />)}
 
           </div>
         ))}
