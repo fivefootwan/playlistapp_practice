@@ -37,13 +37,13 @@ function SearchResult({ tracks, playlists, addTrackToPlaylist }) {
           </div>
           
           <div className={styles.ActionButtons}>
-          <button
-            className={styles.AddToPlaylistButton}
-            onClick={() => handleAddToPlaylist(track)} // ← NEW
-          >
-            <PlusIcon />
-          </button>
-          <button type='button' className={styles.PlayButton}>Play</button>
+            <button
+              className={styles.AddToPlaylistButton}
+              onClick={() => handleAddToPlaylist(track)} // ← NEW
+            >
+              <PlusIcon />
+            </button>
+            <button type='button' className={styles.PlayButton}>Play</button>
           </div>
 
           <hr className={styles.Line} />

@@ -18,6 +18,7 @@ export default function ModalShowPlaylist({ onClose, playlist }) {
                 {playlist.tracks.map((track, index) => (
                 <div key={index} className={styles.TrackItem}>
                     <p>{track.name}</p>   
+                    <p>{track.artists[0].name}</p>   
                     <PlayIcon/>
                     <RemoveIcon/>
                 </div>
