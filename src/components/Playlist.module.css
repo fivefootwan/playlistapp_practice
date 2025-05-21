@@ -18,6 +18,20 @@
     background-color: blue;
 }
 
+.CreatePlayListModal{
+    background-color: slateblue;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+.NewPlaylist{
+    background-color: darkslategray;
+}
+
+.CreateInput{
+    background-color:firebrick;
+}
+
 .Playlists {
     background-color: salmon;
 }
