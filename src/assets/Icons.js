@@ -25,24 +25,42 @@ export function PlusIcon({ onClick }) {
 export function OpenIcon({ size = 24, color = "black", onClick }) {
     return (
       <svg 
-        onClick={onClick}
-        xmlns="http://www.w3.org/2000/svg" 
-        width={size} 
-        height={size} 
-        fill="none" 
-        viewBox="0 0 24 24" 
-        stroke={color}
-        style={{ cursor: 'pointer' }}
+      onClick={onClick}
+      xmlns="http://www.w3.org/2000/svg" 
+      height="24px" 
+      viewBox="0 -960 960 960" 
+      width="24px" 
+      fill="black"
+      style={{ cursor: 'pointer' }}
       >
+        
         <path 
-          strokeLinecap="round" 
-          strokeLinejoin="round" 
-          strokeWidth={1.5} 
-          d="M3 7a2 2 0 012-2h5l2 2h7a2 2 0 012 2v1M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9H5a2 2 0 00-2 2z" 
-        />
-      </svg>
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+        strokeWidth={1.5} 
+        d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/>
+      </svg> 
     );
   }
+
+export function SaveToSpotifyIcon ({ onClick }) {
+  return (
+    <svg 
+    onClick={onClick}
+    xmlns="http://www.w3.org/2000/svg" 
+    height="24px" 
+    viewBox="0 -960 960 960" 
+    width="24px" 
+    fill="#000000"
+    style={{ cursor: 'pointer' }}  
+    >
+
+      <path 
+      d="M440-160v-326L336-382l-56-58 200-200 200 200-56 58-104-104v326h-80ZM160-600v-120q0-33 23.5-56.5T240-800h480q33 0 56.5 23.5T800-720v120h-80v-120H240v120h-80Z"/>
+    
+    </svg>
+  )
+}
 
 export function RemoveIcon ({ onClick }) {
   return (

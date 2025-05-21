@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './Playlist.module.css';
 import ModalRenamePlaylist from './ModalRenamePlaylist';
 import ModalShowPlaylist from './ModalShowPlaylist';
-import { PlusIcon, OpenIcon, EditIcon } from '../assets/Icons';
+import { PlusIcon, OpenIcon, EditIcon, SaveToSpotifyIcon } from '../assets/Icons';
 import ModalCreatePlaylist from './ModalCreatePlaylist';
 
 
@@ -41,6 +41,10 @@ function PlaylistManager({ playlists, addPlaylist, onRemove, onRename }) { // â†
             onRename={onRename}
             onClose={() => setRenamePlaylistModal(false)} 
             /> )} 
+
+
+            <SaveToSpotifyIcon/>
+
 
             <OpenIcon 
             onClick={() => {
