@@ -6,7 +6,7 @@ import { PlusIcon, OpenIcon, EditIcon, SaveToSpotifyIcon } from '../assets/Icons
 import ModalCreatePlaylist from './ModalCreatePlaylist';
 
 
-function PlaylistManager({ playlists, addPlaylist, onRemove, onRename }) { // ← UPDATED: function name matches file
+function PlaylistManager({ playlists, addPlaylist, onRemove, onRename, onSave }) { // ← UPDATED: function name matches file
   const [isModalCreateOpen, setIsModalCreateOpen] = useState(false); // ← NEW
   const [showModal, setModalShowModal] = useState(false);
   const [renamePlaylistModal, setRenamePlaylistModal] = useState(false);
