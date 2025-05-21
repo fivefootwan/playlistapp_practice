@@ -43,7 +43,7 @@ function PlaylistManager({ playlists, addPlaylist, onRemove, onRename }) { // â†
             /> )} 
 
 
-            <SaveToSpotifyIcon/>
+            <SaveToSpotifyIcon onClick={() => onSave(playlist.id)} />
 
 
             <OpenIcon 

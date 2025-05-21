@@ -12,6 +12,82 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [playlists, setPlaylists] = useState([]); // 
 
+  const savePlaylistToSpotify = async (playlistId) => {
+    const accessToken = localStorage.getItem("access_token");
+    if (!accessToken) {
+      alert("You must log in to Spotify first.");
+      return;
+    }
+  
+    // Step 2: Find the playlist locally
+    const playlist = playlists.find(pl => pl.id === playlistId);
+    if (!playlist) {
+      alert("Playlist not found.");
+      return;
+    }
+  
+    const trackUris = playlist.tracks.map(track => track.uri); // Step 2
+  
+    try {
+      // Step 3: Get Spotify user ID
+      const userRes = await fetch("https://api.spotify.com/v1/me", {
+        headers: {
+          Authorization: "Bearer " + accessToken
+        }
+      });
+  
+      if (!userRes.ok) {
+        throw new Error("Failed to fetch Spotify user info.");
+      }
+  
+      const userData = await userRes.json();
+      const userId = userData.id;
+  
+      // Step 4: Create new playlist on Spotify
+      const createRes = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + accessToken,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: playlist.name,
+          public: false
+        })
+      });
+  
+      if (!createRes.ok) {
+        throw new Error("Failed to create playlist on Spotify.");
+      }
+  
+      const newPlaylist = await createRes.json();
+      const newPlaylistId = newPlaylist.id;
+  
+      // Step 5: Add tracks to the new playlist
+      const addTracksRes = await fetch(`https://api.spotify.com/v1/playlists/${newPlaylistId}/tracks`, {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + accessToken,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          uris: trackUris
+        })
+      });
+  
+      if (!addTracksRes.ok) {
+        throw new Error("Failed to add tracks to new playlist.");
+      }
+  
+      // Step 6: Done
+      alert(`✅ Playlist "${playlist.name}" saved to Spotify!`);
+    } catch (error) {
+      console.error("Error saving playlist to Spotify:", error);
+      alert("❌ Something went wrong while saving the playlist.");
+    }
+  };  
+
+
   const addPlaylist = (name) => { // ← NEW
     const newPlaylist = {
       id: Date.now(),
@@ -96,6 +172,7 @@ function App() {
                   addPlaylist={addPlaylist}
                   onRemove={removeTrackFromPlaylist}
                   onRename={renamePlaylist}
+                  onSave={savePlaylistToSpotify} 
 
                 />
               </div>
